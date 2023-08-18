@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script>
+
+        function exe(){
+             //현재문서에서 아이디가 v1인 요소의 값(value)을 가져오자.
+            // let val = document.getElementById("v1").value;
+            let val = $("#v1").val();
+            alert(val);
+        }
+/*
+        $(document.real).ready(function exe(){
+            alert("exe");
+        });
+
+                위의 내용과 아래의 내용이 같은 것이다.
+            */
+        
+        $(function exe(){
+            alert("exe");
+        });
+    </script>
+</body>
+</html>

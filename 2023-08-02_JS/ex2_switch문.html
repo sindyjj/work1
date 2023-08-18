@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 300px;
+            height: 160px;
+            border: 1px solid blue;
+            text-align: center;
+            line-height: 160px;
+            font: 30px bold;
+            font-weight: bold;
+            margin-top: 10px;
+
+        }
+    </style>
+
+</head>
+<body>
+    <form method="post">
+        <label for="v1">1~5사이에 값 입력</label>
+        <input type="text" id="v1" name="type"/>
+        <button type="button" onclick="exe(this.form)">확인</button>
+    </form>
+    <div id="box"></div>
+
+    <script>
+        let box = document.getElementById("box");
+
+        function exe(ff){
+            //인자로 전달된 form은 ff라는 변수에 저장된다.
+            let value = parseInt(ff.type.value);
+
+            if(value < 1 || value > 5){ //  범위 값을 찾아야하면 if문이 맞고 같은 값을 찾아야하면  switch문을 유용하다.
+                //1~5사이의 값이 아닌 경우.
+                alert("값을 잘 못 입력하셨습니다.");
+                return; // 틀렸으니 호출한 곳으로 보내면서 더 이상 수행 하지 않는다.
+                }else if(value >= 1 && value <= 5){
+                /* if(value == 1)
+                    box.innerText = "1억입니다.";
+                    else if(value == 2)
+                    box.innerText = "8천만원입니다.";
+                    else if(value == 3)
+                    box.innerText = "6천만원입니다.";
+                    else if(value == 4)
+                    box.innerText = "4천만원입니다.";
+                    else
+                    box.innerText = "2천만원입니다.";
+
+                } */
+
+                /*
+
+                switch문의 구성
+                switch(값){
+                    case 비교값1 :
+                        수행할 구문1;
+                        수행할 구문2;
+                        break;
+                    case 비교값2 :
+                        수행할 구문3;
+                        break;
+                        ...
+                    case 비교값n :
+                        수행할 구문n;
+                        braek;
+
+
+                }
+
+                */
+               switch(value){   // 같은 값을 찾아야하면 switch가 더 좋다 범위 값을 찾아야하면 if문이 더 효과적이다.
+                case 1:
+                    box.innerText = "1억입니다.";
+                    break;
+                case 4:
+                    box.innerText = "4천입니다.";
+                    break;
+                case 2:
+                    box.innerText = "8천입니다.";
+                    break;
+                case 5:
+                    box.innerText = "2천입니다.";
+                    break;
+                case 3:
+                    box.innerText = "6천입니다.";
+                    break;
+                
+               }//switch문의 끝
+             } else alert("뭘 입력하셨죠?")
+        
+            }
+        
+    </script>
+
+
+</body>
+</html>

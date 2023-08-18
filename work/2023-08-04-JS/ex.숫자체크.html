@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 300px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <label for="b_year">태어난 년도</label>
+    <input type="text" id="b_year" name="birth_year"/>
+    <button type="button" onclick="exe(this.form)">확인</button>
+    </form>
+</br>
+    <div id="box"></div>
+
+    <script>
+        let box = document.getElementById("box"); // box란 애를 함수로 객체화 시켜서 찾는 함수다.
+        // document.createElement("input");// html에 input같은 코드를 만들고 싶을떄 스크립트 안에는   document.createElement("input")
+        function exe(ff){
+            // 인자로 받은 ff라는 변수는  exe라는 함수 안에서만 사용할 수 있는 지역변수다.
+            // let d_val = document.getElementById("b_year").value;
+            let b_val = ff.birth_year.value; // 영역을 벗어나면 소멸된다.
+            //console.log(b_val);
+
+            //사용자가 입력한 생년의 값을 checkNumber 라는 함수를 호출하면서
+            // 전달하여 숫자만 있는지? 판단하여 결과를 받아야한다.
+            //★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+            let res = checkNumber(b_val); // b_val 의 값이 true 인지 false인지 판단해서 res란 값에 넣어둔다.★★★★★★
+            //★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+                //문자가 하나라도 있다면 , chk의 값은 true다
+                //console.log(res);   
+                //if(res == false){//res이 false일 경우(숫자만 있을 경우)
+                if(!res){
+                    //숫자만 입력되었을 때만 수행하는 곳!
+                    let now = new Date(); //현재날짜 구하기
+                    //console.log(now);
+
+                    // 현재날짜의 년도만 검출하자!
+                    let c_year = now.getFullYear();
+                    //console.log(c_year);
+
+                    //나이 구하기(현재년도 - 태어난 년도)
+                    let age = c_year - b_val;
+                    let msg = "";   // 아직까지 모르겠음.......
+                    if(age < 19){
+                        msg = age+ "세이므로 닌 얼라다!";
+                    }
+                    else{
+                        msg = age+ "세이므로 나이 많이 잡셨네"
+                    }
+                    box.innerHTML = msg;
+                }else
+                    box.innerText = "문자 또는 공백이 포함되어 안됩니다.";
+            
+        }
+
+        function checkNumber(str){ //str은 전달 받을 문자열 인자.
+            let chk = false;// chk가 하나라도 있다면 true가 되는  지역변수, 여기 영역만 사용할 수 있고 영역을 벗어나면 소멸된다.
+            for(let i=0; i<str.length; i++){
+                //먼저 str에서 문자 하나를 가져와서 변수 ch에 저장하자.
+                let ch = str.charAt(i);// 0이라 두면 첫번째 i라고 하면 반복문이다. charAt : 함수
+
+                //얻어낸 문자가 숫자가 아닐 때 chk에 값을 true로 변경한 후
+                // 현재 반복문을 탈출한다.
+                //if(ch >= '0' && ch <= '9')//ch는 문자
+                if(ch < '0' || ch > '9'){
+                    chk = true;
+                    break; // 
+                }
+            }//for문의 끝                          34~43까지 문자열이 존재하나 의 로직 이다!
+            return chk; //호출한 곳(36열) 으로 chk의 값을 보낸다. (반환값)
+        }
+    
+    </script>
+</body>
+</html>

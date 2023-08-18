@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //논리연산자는 &&(그리고), ||(또는), !(부정) 들이 있다.
+        let a = 10;
+        let b = 8;
+
+        let c = (a > b && b != 0);  // t && t -> t    t %% f -> f    f %% t -> f
+        document.write(c);//true
+
+        c = (++a < b--&& ++a != 0); //11 < 8 (t) && 12 != 0 (f) = f
+        document.write("<br/>"); // 결과에 따라서 첫번쨰 조건에 따라서 두번째 조건이 수행 될지 말지 정해진다.
+        document.write(a); // 11   앞에가 t 뒤에서 f면 뒤를 수행하느냐? 
+        document.write("<br/>");
+        document.write(b); // 7
+        document.write("<br/>");
+        document.write(c); // false 
+
+        c = (++a < b--|| ++a != 0); //  || (or) 앞에서 t 가 나오면 뒤에도 t기때문에 뒤에가 수행 안된다
+        document.write("<br/>");    //  12 < 7 (t) || 13 !=0 (f)
+        document.write(a); // 13
+        document.write("<br/>");
+        document.write(b); // 6
+        document.write("<br/>");
+        document.write(c); // true
+
+    </script>
+
+</body>
+</html>

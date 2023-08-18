@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td{
+            font-weight: bold; 
+             width: 130px;
+             height: 60px;
+             border: 2px solid red;
+        }
+        table{
+            border-collapse: collapse;
+            text-align: center;
+            width: 500px;
+        }
+        table#t1{
+            border-collapse: collapse;
+            border-spacing: 0px;
+        }
+        header{
+            text-align: center;
+            line-height: 60px;
+            font-weight: bold;
+        }
+        table#r1{
+            height:;
+        } 
+    </style>
+</head>
+<body>
+    <header>인재개발원 숙소</header>
+    <table id="t1" width="1000px">
+        <colgroup>
+            <col width="100px">
+        </colgroup>        
+    <tbody id="r1"> 
+        <tr>
+            <td>방이름</td>
+            <td>대상</td>
+            <td>크기</td>
+            <td>가격</td>
+        </tr>
+        <tr>
+            <td>유채방</td>
+            <td>여성</td>
+            <td rowspan="3">4인실</td>
+            <td rowspan="4">1인 60000원</td>
+        </tr>
+        <tr>
+            <td rowspan="2">동백방</td>
+            <td>동성</td>
+        </tr>
+        <tr>
+            <td>가족</td>   
+        </tr>
+        <tr>
+            <td>천혜향방</td>
+            <td>누구나</td>
+            <td>2인실</td>
+
+        </tr>
+        <tr>
+            <td colspan="4">3세까지무료</td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        nav{
+            height: 40px;
+            font-weight: bold;
+
+        }
+        nav>ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        nav ul li{
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        @media all and (min-width:800px){
+            article{ width:100%; }
+            nav{
+                border: 2px solid red;
+                width: 100%;
+            }
+            section{
+                display: inline-block;
+                width: 60%;
+                border: 2px solid blue;
+                
+            }
+            aside{
+                display: inline-block;
+                width: 20%;
+                border: 2px solid purple;
+            }
+        }
+
+        @media all and (min-width:400px) and (max-width:800px){
+            article{ width:800px; }
+            nav{
+                border: 2px solid red;
+                width: 80%;
+                margin: auto;
+                display: flex;
+                justify-content: space-around;
+            }
+            section{
+                display: inline-block;
+                width: 596px;
+                border: 2px solid blue;
+                
+            }
+            aside{
+                display: inline-block;
+                width: 596px;
+                border: 2px solid purple;
+                background-color: wheat;
+            }
+            nav ul li{
+                margin: auto;
+                width: 150px;
+                text-align: center;
+
+            }
+        }
+
+
+        @media all and (max-width:399px){
+            article{ width:800px; }
+            nav{
+                /* border: 2px solid red; */
+                width: 316px;
+            }
+            section{
+                display: inline-block;
+                width: 316px;
+                border: 2px solid blue;
+                
+            }
+            aside{
+                display: inline-block;
+                width: 316px;
+                border: 2px solid purple;
+                background-color: wheat;
+            }
+            nav ul li{
+                margin: auto;
+                width: 316px;
+                text-align: center;
+                background-color: bisque;
+                border-bottom: 1px solid rebeccapurple;
+
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <section>
+        <nav>
+            <ul>
+                <li><a href="#">Menu01</a></li>
+                <li><a href="#">Menu02</a></li>
+                <li><a href="#">Menu03</a></li>
+                <li><a href="#">Menu04</a></li>
+                <li><a href="#">Menu05</a></li>
+                <li><a href="#">Menu06</a></li>
+            </ul>
+        </nav>
+    </section>
+    <section>
+        <header>
+            <h2>Manchaster</h2>
+        </header>
+        <P>
+            맨시티는 나이가 33세로 축구선수로서 황혼기를 앞두고 있지만 앞으로 1~2년은 더 활약할 수 있을 거라고 판단해 워커 영입을 추진했고, 개인 합의까지 마친 것으로 알려졌다.<br/>
+            <br/>
+            뮌헨 소식에 정통한 독일 스카이스포츠 플로리안 플라텐베르크 기자는 지난달 20일 SNS을 통해 "카일 워커는 펩 과르디올라 감독에게 뮌헨에 합류하고 싶다고 알렸다"라며 독점 보도를 냈다.<br/>
+            <br/>
+            플라텐베르크 기자는 뮌헨 전담 기자로, 축구 팬들 사이에서 뮌헨과 관련된 소식 신뢰도가 가장 높은 기자 중 한 명으로 잘 알려져 있다. 대한민국 수비수 김민재가 뮌헨으로 이적할 때까지 이적료와 연봉 등 그가 뮌헨과 타결한 조건을 속속 보도한 바 있다.<br/>
+            <br/>
+            그는"아직 구단 간의 합의 사항은 없다. 뮌헨의 첫 번째 제안이 곧 뒤따를 것"이라며 "뮌헨은 1년 연장 옵션이 포함된 2025년까지 유효한 2년 계약으로 선수와 개인 합의를 마쳤다"라고 설명했다.<br/>
+        </P>
+    </section>
+    <aside>
+        <p>sideMenu1</p>
+        <p>sideMenu2</p>
+        <p>sideMenu3</p>
+    </aside>
+</body>
+</html>

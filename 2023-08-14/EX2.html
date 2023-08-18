@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>       
+        table{  
+            width: 850px;
+        }
+        table#t1{   
+            border-collapse: collapse;
+        }
+        table#t2{
+            border-spacing: 0px;
+        }
+
+        table td, table th{ 
+            border: 2px solid #f00;
+            text-align: center;
+            
+        }
+        table>tfoot td{
+            text-align: center;
+        }
+        caption{
+            margin-bottom: 14px;
+            font-size: 19px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <h1></h1>
+        </header>
+        <article>
+            <table id="t1" summary="인재개발원 숙소">
+                <caption>인재개발원 숙소</caption>
+                <colgroup>
+                    <col width="200px"/>
+                    <col width="150px"/>
+                    <col width="120px"/>
+                    <col width="*"/>
+                </colgroup>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">** 3세까지무료</td>
+                    </tr>
+                </tfoot>
+                <thead>
+                    <tr>
+                        <th>방이름</th>
+                        <th>대상</th>
+                        <th>크기</th>
+                        <th>가격</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>유채방</td>
+                        <td>여성</td>
+                        <td rowspan="3">4인실</td>
+                        <td rowspan="4">1인 60,000원</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">동백방</td>
+                        <td>동성</td>
+                    </tr>
+                    <tr>                        
+                        <td>가족</td>
+                    </tr>
+                    <tr>
+                        <td>전혜향방</td>
+                        <td>누구나</td>
+                        <td>2인실</td>
+                    </tr>
+                </tbody>
+            </table>
+           
+                </tbody>
+            </table>
+        </article>
+    </div>
+</body>
+</html>

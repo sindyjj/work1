@@ -1,0 +1,89 @@
+<DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            #can1{
+                border: 3px dotted black;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Canvas Test</h1>
+        <canvas id="can1" width="600px" height="300px"></canvas>
+        
+    
+        <script>
+             //body에 onload이벤트 속성 지정한 것과 같은 효과
+             window.onload = function(){ // 현재 창을 열면 함수 값을 넣어주겠다.
+                //console.log("윈도우onload");
+                //현재문서에서 아이디가 can1인 캔버스 요소를 얻어낸다.
+                let mc = document.getElementById("can1");
+    
+                //캔버스를 얻어낸 이유는 그안에 그림을 그리기 위함이다.
+                //그렇다면 붓과 같은 객체를 캔버스로부터 얻어낸다.
+                let ctx = mc.getContext("2d");
+                // 붙과 같은 객체인 ctx가 받아졌을 때만 수행하자.
+                if(ctx){
+                    ctx.strokeStyle = "black";
+                    ctx.fillStyle = "wheat";
+                    ctx.lineWidth = 5;
+
+                    ctx.beginPath();
+                    //arc(호의 중심점(x좌표),호의 중심점(y좌표), 반지름, 시작위치, 끝위치, 
+                    // 호를 그리는 방향 시계방향이면 false,반시계방향 true))
+                    ctx.arc(150, 150, 100, 2*Math.PI, 2*Math.PI, false);
+                    ctx.stroke();
+                    
+                    let degress = 173;
+                    let radians = (Math.PI)
+                    ctx.beginPath();
+                    ctx.arc(330,150,100,0,2*Math.PI, 1.5*Math.PI,false);
+                    ctx.fill()
+                    ctx.stroke();
+
+
+
+                    ctx.beginPath();
+                    //arc(호의 중심점(x좌표),호의 중심점(y좌표), 반지름, 시작위치, 끝위치, 
+                    // 호를 그리는 방향 시계방향이면 false,반시계방향 true))
+                    ctx.arc(200, 150, 100, 2.*Math.PI, 1.73*Math.PI, false);
+                    ctx.fill()
+                    ctx.stroke();
+
+
+             }
+             if(ctx){
+                ctx.strokeStyle = "black";
+                    ctx.fillStyle = "brown";
+                    ctx.lineWidth = 5;
+
+             ctx.beginPath();
+                    ctx.arc(270, 270, 20, 2*Math.PI, 1.99999*Math.PI, false);
+                    ctx.fill()
+                    ctx.stroke();
+         }
+         if(ctx){
+                ctx.strokeStyle = "black";
+                    ctx.fillStyle = "red";
+                    ctx.lineWidth = 5;
+
+                    ctx.beginPath();
+                    ctx.arc(200, 150, 100, 2*Math.PI, 1*Math.PI, true);
+                    ctx.fill()
+                    ctx.stroke();   
+                    
+                    let degress = 173;
+                    let radians = (Math.PI)
+                    ctx.beginPath();
+                    ctx.arc(330,150,100,1.5*Math.PI, 1*Math.PI,true);
+                    ctx.fill()
+                    ctx.stroke();
+         }
+
+        }
+        </script>
+    </body>
+    </html>

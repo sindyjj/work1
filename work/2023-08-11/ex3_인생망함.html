@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wrap>ul{
+            display: inline-block;
+             /* border: 1px solid peru; */
+            width: 300px;
+            height: 400px;
+            margin: auto;
+            list-style: none;
+            margin-left: 40px;
+            background-color: papayawhip;
+        }
+       .box1{
+        width: 200px;
+        height: 250px;
+         /* border: 1px solid red; */
+         margin-left: 25px;
+         padding-left: 30px;
+         padding-top: 30px;
+       }
+       .box2{
+        width: 200px;
+        height: 50px;
+         /* border: 1px solid blue; */
+        text-align: center;
+        margin-left: 25px;
+
+       }
+       .box3{
+        width: 200px;
+        height: 30px;
+         /* border: 1px solid purple;  */
+        text-align: center;
+        margin-left: 25px;
+       }
+    </style>
+</head>
+<body>
+    <form action="" method="post">
+        <fieldset>
+            <select id="select1">
+                <option>제조회사</option>
+                <option>제품타입</option>
+                <option>최고가격</option>
+            </select>
+                <legend>숙제 망했다링!</legend>
+                <label for="comp"></label>
+                <input type="text" id="comp"/>
+                <button type="button" onclick="exe()">검색</button>
+        </fieldset>           
+    </form>
+    <div id="wrap">
+        <ul>
+                <li class="box1">
+                    <img src="">
+                </li>
+                <li class="box2" >제품명</li>
+                <li class="box3">가격</li>
+        </ul>
+    </div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>   
+    <script>
+        function exe(){
+
+            let comp = $("#comp").val();
+            
+            if(comp.trim().length > 0 ){
+
+            
+
+                // 서버호출(비동기식)★★★★★★★★★★★★★★★★★★
+                $.ajax({ // 속성이 여러개기 때문에 중가로 넣는다.
+                    url: "https://makeup-api.herokuapp.com/api/v1/products.json",
+                    data: "brand="+comp, //{"brand":comp}
+                    type: "get",//"전송방식(get/post)",
+                    dataType: "json"//"서버로부터_응답되어오는_자원의_유형(return되는_자료형)"
+                }).done(function(data){
+                    //요청이 성공했을 때 수행하는 곳
+                    //data가 서버로 부터 전달되어오는 return값이다.
+                    //요청이 실패할 경우 file(function(err){
+                    console.log(data);
+                    let msg="";
+                    for(let i=0; i<data.length; i++){
+                        msg += "<ul>";
+                        msg += "<li class=box1><img src='"+data[i].image_link+"'></li>";
+                        msg += "<li class=box2><a href='"+data[i].product_link+"'>"+
+                            data[i].name+
+                            "</a></li>"; // 실패
+                        msg += "<li class=box3>$"+data[i].price+"</li>";
+                        msg += "</ul>";
+                    }// for문의 끝
+                    $("#wrap").html(msg);
+                }).fail(function(err){
+                    //요청시 오류가 발생했을 때 수행하는 곳
+                });
+            } //if문의 끝
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>File API 연습</h1>
+    </header>
+    <article>
+        <p>
+            <h2>File API는</h2>
+            <section>
+                HTML5에서 제공하는 기능 중 로컬에 저장된 파일을 읽을 때
+                사용하는 API이다.
+            </section>
+        </p>
+        <form>
+            <input type="file" id="s_file" multiple/> <!-- type = file 은 value로 지정할 수 없다.-->
+
+            <select id="enc">
+                <option>UTF-8</option>
+                <option value="8859_1">8859_1</option>
+            </select>
+
+            <button type="button" onclick="readFile()">읽기</button>
+            <div>
+                <span id="fileName">File Name</span>
+                <span id="fileSize">File Size</span>
+            </div>
+            <textarea  id="content" readonly
+             style="width: 600px; height: 400px;"></textarea>
+
+             <!-- disabled  상자안에 글 수정 불가능 (사용 못해 ! 서버에 못보낸다.) 비활성화  
+                  readonly  상자안에 글 수정 블가능 (읽기만 해 ! 서버에 보낼 수 있다.) 수정은 못하지만 보낼 순 있다. ex) 아이디   -->
+
+        </form>
+    </article>
+    <script>
+
+        function readFile(){
+            //사용자가 선택한 파일 가져오기
+            //type="file" 형태는 보안상 value로 값을 지정할 수 없다. 파일을 여러개 선택할 수 있는 옵션이 있으므로
+            //가져올 때 배열로 받는다.
+            //document.getElementById("s_file").value = "ttttt.java"; 벨류로 가져올 수 없다 21문단 참조
+            let file = document.getElementById("s_file").files[0]; // .files : 배열이다.
+            //위는 file태그를 가져온것이 아니다 사용자가 지정한 파일 객체를 가져오려는 것이다.
+            document.getElementById("fileName").textContent = file.name; // 파일을 불러내서 읽기를 하면 파일이름이 나온다.
+            document.getElementById("fileSize").innerText = "("+file.size+")";
+
+            //파일 내용을 읽기하기 위해 Reader객체 생성
+            //Reader는 문자기반의 파일들만 읽기하는 객체다.
+            let reader = new  FileReader(); //  FileReader 내장객체다! (스트림 객체: 깨지기 쉽다.)
+
+            //reader로부터 자원들이 읽기가 끝나면 이벤트를 감지하는
+            //이벤트 감시자 등록! ex) onload
+            reader.onload = function(){
+                // 파일 지원들을 읽었으면 현재 문서에서 아이디가 
+                // content인 객체를 가져온다    
+                // 이유는 그곳에 내용을 출력해야 하니까!
+                let ta =document.getElementById("content");
+
+                ta.innerText/* 빨대로 먹던걸 준다 .*/ = reader/* 빨대 */.result /* 빨대로 빤 내용물*/; // reader.result 읽은 값들을  ta.innerText 안에 모조리 넣어라!
+                //textarea에 표현한다.
+            };
+
+            //reader에서 오류가 발생했을 때를 감지하는 이벤트
+            reader.onerror = function(ev){
+                alert(ev.target.error.code); 
+                // 정상적인 처리 코드는 200 오류 코드는 파일 경로 
+                //클라이언트 오류는 400번때  클라이언트 문제 없지만 서버가 오류가 발생될때 500번때
+            }
+
+            //선택된 파일을 읽기 하기 전에 인코딩을 지정한다. UFT (유니코드) = (8bit = 1byte)
+            let enc=document.getElementById("enc");
+            
+            //enc에 선택된 index값(0부터 시작) 을 가지고 여러 개의 option들을 배열로 관리하여
+            //접근하는 값을 사용한다.
+            //접근된 option요소의 문자열 값(value)을 얻어내자.
+            let encoding = enc.options[enc.selectedIndex].value;
+
+            //파일의 문자열 자원들을 읽기 수행한다.   파일을 지정하여 읽기 시작.onload에서 발동  59번째 61번째를 수행한다. 
+            reader.readAsText(file, encoding); // 다 읽으면 55번째 onload가 출력되어 나온다. (44번째 file이 지금 file)
+            //★★★★★★★핵심 중요 윗문단 ★★★★★★★
+        }
+    </script>
+</body>
+</html>

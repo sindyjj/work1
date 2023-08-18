@@ -1,0 +1,59 @@
+<DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            #can1{
+                border: 3px dotted black;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Canvas Test</h1>
+        <canvas id="can1" width="600px" height="300px"></canvas>
+        
+    
+        <script>
+             //body에 onload이벤트 속성 지정한 것과 같은 효과
+             window.onload = function(){ // 현재 창을 열면 함수 값을 넣어주겠다.
+                //console.log("윈도우onload");
+                //현재문서에서 아이디가 can1인 캔버스 요소를 얻어낸다.
+                let mc = document.getElementById("can1");
+    
+                //캔버스를 얻어낸 이유는 그안에 그림을 그리기 위함이다.
+                //그렇다면 붓과 같은 객체를 캔버스로부터 얻어낸다.
+                let ctx = mc.getContext("2d");
+                // 붙과 같은 객체인 ctx가 받아졌을 때만 수행하자.
+                if(ctx){
+                    ctx.strokeStyle ="#00f"
+                    ctx.fillStyle = "#f00"
+                    ctx.lineWidth = 5;
+
+                    //점들의 집합인 path를 시작한다.
+                    ctx.beginPath();
+                    ctx.moveTo(0,50);
+                    ctx.lineTo(50,50);
+                    ctx.lineTo(200,50);
+                    ctx.lineTo(200,200);
+                    ctx.lineTo(260,200);
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.moveTo(300,400);
+                    ctx.lineTo(50,50);
+                    ctx.lineTo(50,50);
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.moveTo(300,50);
+                    ctx.lineTo(260,190);
+
+                    ctx.stroke();
+
+             }
+         }
+        </script>
+    </body>
+    </html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <style>
+        #tabs>div{
+            background-color: #ffffff;
+        }
+        .w500{
+            width: 500px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="contents" class="w500">
+        <div id="tabs">
+            <!--누르는 탭들-->
+            <ul>
+                <li><a href="#t1">첫번째</a></li>
+                <li><a href="#t2">두번째</a></li>
+                <li><a href="#t3">세번째</a></li>
+            </ul>
+
+            <!--각 탬의 내용들-->
+            <div id="t2">두번째 tab의 내용입니다.</div>
+            <div id="t1">뮌헨에서의 마네는 최악이었다. 운동 능력이 가파르게 꺾였으며 뮌헨이 추구하는 스타일과는 전혀 다른 모습을 보여주면서 윙어로서도 좋았을 때의 모습을 보여주지 못했다. 또한 경기가 끝난 뒤 리로이 자네에게 얼굴을 폭행했다는 사실이 밝혀져 팬들과 구단에게 민심이 최악으로 떨어졌다.
+                <br/>
+                <br/>
+                결국 공식적으로 벌금과 출장 정지 징계를 받았고 선수단에게 사과를 했다. 이 사건으로 인해 많은 언론에서 뮌헨이 마네를 팔고 싶다는 얘기가 많이 나왔고 결국 마네는 뮌헨에 이적한 지 한 시즌 만에 사우디의 알 나스르로 이적하게 된다.
+                <br/> 
+                <br/> 
+                알 나스르의 데뷔전에서 그는 후반에 교체돼 45분을 뛰면서 컨디션을 올렸지만 이번 경기에 70분을 뛰면서 지속적으로 안 좋은 경기력을 보여줘 평점 팀 내 최저 평점인 5.9점을 받았다.
+                <br/> 
+                <br/> 
+                한편 호날두는 지난주 아랍 클럽 챔피언스컵에서 이집트 팀인 자말렉을 상대로 또 골을 넣으며 좋은 활약을 펼치고 있다. 1-0으로 지고 있는 후반 42분 특유의 서전트 점프를 활용한 헤딩슛을 성공해 팀을 위기에서 구해냈다.</div>
+                <br/>
+                <div id="t3">
+                    (엑스포츠뉴스 권동환 기자) PSG(파리 생제르맹) 스타 네이마르가 바르셀로나 복귀를 희망해 화제를 모았지만 성사될 가능성이 그리 높지 않은 것으로 드러났다.
+                    <br/>
+                    <br/>
+                프랑스 언론 'RMC 스포츠' 소속 언론인 파브리스 호킨스는 8일(한국시간) SNS을 통해 "네이마르와 PSG는 헤어지려고 하지만 네이마르가 바르셀로나로 돌아갈 가능성은 거의 없다"라고 보도했다.
+                    <br/>
+                    <br/>
+                2023/24시즌 개막이 얼마 남지 않은 가운데 새 시즌 준비가 한창인 PSG에 날벼락이 떨어졌다. 팀 내 최고의 스타 중 한 명인 네이마르가 갑자기 클럽을 떠나고 싶어 한다는 소식이 전해졌다.
+                    <br/>
+                    <br/>   
+                프랑스 매체 '레퀴프'는 지난 7일 "네이마르는 PSG 수뇌부에 이번 여름 팀을 떠나고 싶다는 의사를 알렸다"라며 "그는 바르셀로나로 돌아가기로 결심했다"라고 보도했다.
+                    <br/>
+                    <br/>
+                </div>    
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+    <script>
+        $(function(){
+                $("#tabs").tabs();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            #can1{
+                border: 3px dotted black;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Canvas Test</h1>
+        <canvas id="can1" width="600px" height="300px"></canvas>
+        
+    
+        <script>
+             //body에 onload이벤트 속성 지정한 것과 같은 효과
+             window.onload = function(){ // 현재 창을 열면 함수 값을 넣어주겠다.
+                //console.log("윈도우onload");
+                //현재문서에서 아이디가 can1인 캔버스 요소를 얻어낸다.
+                let mc = document.getElementById("can1");
+    
+                //캔버스를 얻어낸 이유는 그안에 그림을 그리기 위함이다.
+                //그렇다면 붓과 같은 객체를 캔버스로부터 얻어낸다.
+                let ctx = mc.getContext("2d");
+                // 붙과 같은 객체인 ctx가 받아졌을 때만 수행하자.
+                if(ctx){
+                   let str = "영차!"; 
+                   
+                   ctx.font = "25pt Georgia";
+                   ctx.fillText(str, 20, 40);
+
+                   ctx.fillStyle ="red";
+                   ctx.fillText(str, 20, 80);
+
+                   ctx.font = "36pt Verdana";
+                   ctx.fillStyle ="blue";
+                   ctx.fillText(str, 20, 130);
+
+                   ctx.font = "50pt Verdana";
+                   ctx.fillStyle ="green";
+                   ctx.fillText(str, 20, 200);
+
+                   ctx.font = "60pt Verdana";
+                   ctx.strokeStyle ="purple";
+                   ctx.strokeText(str, 20, 280);
+                   
+        }
+    }
+        </script>
+    </body>
+    </html>

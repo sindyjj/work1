@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>kakao map practise</h1>
+    </header>
+
+    <div>
+        <form>
+            <label for="adress">주소</label>
+            <input type="text" name="address" id="address"
+            style="width:500px; padding: 4px;">
+            <button type="button" onclick="exe()">검색</button>
+
+            
+        </form>
+    </div>
+    <div id="map" style="width:800px;height:500px;"></div>
+
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=178c17c28cf719943f5f66ac24e52e88&libraries=services"></script>
+    <script>
+        let adrress = document.getElementById("adrress");
+		var container = document.getElementById('map');
+		var options = {
+			center: new kakao.maps.LatLng(33.450701, 126.570667),
+			level: 3
+		};
+
+		var map = new kakao.maps.Map(container, options);
+
+        viewMap(null/*함수값을 줄께 없을땐 */);//함수호출
+
+        function exe(){
+            //18번 올클릭 버튼을 눌렀을때마다 호출되는 곳
+
+            //1. 사용자가 입력한 주소를 가져온다. 16번 아이디
+            let addr = adrress.value; //★★★★★★★★★★★★★★★★
+            if(addr.trim().length < 1){
+                alert("주소를 입력하세요");
+                adrress.value = "";
+                adrress.focus(); // 차라리 이렇게 할빠엔 27번에 변수명을 지정한다.
+                return;
+            }else{
+                viewMap(addr); // 주소 넣었으니까 .. 지도 보여달라고 함수 호출
+            }
+        }
+        
+        function viewMap(addr1/*인자값*/){
+            if(addr1 == null) //addr1 값는 null 값이 될 수 없기때문에 addr1에 서울특별시 마포구를 넣어준다.
+            //★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+                addr1 ="서울특별시 마포구 백범로 23";
+
+            // 주소-좌표 변환 객체를 생성합니다
+var geocoder = new kakao.maps.services.Geocoder();
+
+// 주소로 좌표를 검색합니다
+geocoder.addressSearch(addr1/*37번 인자값을 넣어준다*/, function(result, status) {
+
+    // 정상적으로 검색이 완료됐으면 
+     if (status === kakao.maps.services.Status.OK) {
+
+        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+        // 결과값으로 받은 위치를 마커로 표시합니다
+        var marker = new kakao.maps.Marker({
+            map: map,
+            position: coords
+        });
+
+        // 인포윈도우로 장소에 대한 설명을 표시합니다
+        var infowindow = new kakao.maps.InfoWindow({
+            content: '<div style="width:150px;text-align:center;padding:6px 0;">'+addr1+'</div>'
+        });
+        infowindow.open(map, marker);
+
+        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+        map.setCenter(coords);
+    } 
+})
+}
+        
+        
+    
+
+    
+  
+	</script>
+</body>
+</html>

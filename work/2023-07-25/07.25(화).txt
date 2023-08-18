@@ -1,0 +1,164 @@
+07.25(화)
+-CSS배우기-
+
+웹 표준은 3가지로 나뉜다
+
+HTML: 표현할 데이터와 구조
+
+CSS: 화면의 표현력
+
+JabaScript: 동작
+
+
+.txt_r.l = text a line right , left (CSS 의 기본)
+(택스크 글을 오른쪽이나 왼쪽으로 옮기고싶다 의 약자)
+
+<STYLE> 안에 쓰인다^
+css주석 :  <!----!> 가 아니라 /* */  <점은 틀을 만들꺼야의 의미>
+
+<td> 안에 class="txt_r">하면  아이디가 오른쪽으로 정렬
+
+
+text-align :center; = 센터로 맞춘다
+font-weight : bold; = 글씨 굵기
+
+문단태그  
+<pre>
+ <div>
+ <p>
+<article>
+
+css 방법 : <style> 밑에 설정하고싶은 영어 적고 대괄호 픽셀넣기
+
+element선택자: 요소선택자
+class선택자: .을 찍어서 정의
+
+table{border-spacing: 0px} = 중요 (선을 합쳐진다)★★★★★
+
+border-collapse: collapse; : 보더에 속성을 다 무시해라
+
+ex>
+
+ <style>
+        /*img태그들 모드에게 적용*/
+        img{
+            width: 400px;
+            height: 300px;
+        }
+        td,th{/* td또는 th 모두 적용한다 */ (콤마는 무한대다)
+            width: 200px;
+            height: 170px;
+            text-align: center;
+            border: 1px solid black;
+        }
+        table{
+            /*
+            border-spacing: 0px;
+            border: 0px;
+            */
+            border-collapse: collapse;
+        }
+    </style>
+
+제일 문맥 앞에 커서 대고 컨트롤 + ? 누르면 문단 자동 주석 처리
+
+<select> : 커서 누르면 밑에 정보 쭈루룩 나오는거
+ex) <select id="s_loc">
+
+<option> : 옵션
+ex)  <option>::선택하세요::</option>
+ <option value="">"seoul"</option>
+ <option value="">"gyungki"</option>
+ <option value="">"inchun"</option>
+ <option value="">"gapyong"</option>
+ <option value="">"jeju"</option>
+
+
+checkbox : 여러개를 선택 가능하게 하는 명령어
+radio: 한개를 선택하기 위해 만든 명령어
+ex) <input type="radio" id="s_gender" name="u_gender" value="2"/>남자 &nbsp; 
+
+<input type="checkbox" name="u_hobby" value="캠핑" id="s_hobby"/>캠핑 
+
+
+name은 같은걸로해야 하나만 선택가능 name이 다르면 중복됨
+★★★★★★★★★★★★\
+
+(th)label > input > select 본 크기순서
+input name 과 select name은 동일
+
+
+<textarea>= 메모장
+rows = 세로
+cols = 가로
+
+ex) <textarea id="s_desc" name="s_desc" rows="10" cols="60"></textarea>
+
+옵션 선택 칸 만들떄 
+
+<option>::선택하세요::</option>
+   <option value="naver.com">naver.com</option>
+   <option value="daum.net">daum.net</option>
+   <option value="google.co.kr">google.co.kr</option>
+   <option value="">직접입력</option>
+
+
+
+<button><reset> 저장 취소 칸 만들때 사용법
+
+ex) 
+<td colspan="2">
+      <button type="button">저장</button>
+      <button type="reset">취소</button>
+</td>
+
+
+<input>의 대한 설명
+margin : 박스에 크기에서 바깥쪽에 여백을 주고싶다(키운다)
+padding : 박스에 크기에서 안쪽에 여백을 주고싶다(작게)
+
+table(띄어쓰기)#1 :table 태그 안에 있는거 중에 (자손선택자)
+table#1: table#1중에 t1만 적용됨( 
+
+ #t1>thead>tr{ /*자식선택자 활용*/
+ #t2>thead>tr{
+
+특정칸에 배경색 넣기
+
+background-color : 색깔;
+
+list-style:none : 리스트 스타일을 보여주지마세요 뜻
+
+display: block; : 인라인레벨을 블록레벨로 변경됨
+
+ display: inline-block = 유용하다 반반 느낌
+
+overflow: hidden 글 지우기
+
+text-indent: 글 없애기
+
+backrground: no-repeat : 사진이 공간에 다 뜨는거보다 하나로 줄일떄
+
+
+
+
+
+
+
+
+제품 상세보기 제품검색 제품삭제
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

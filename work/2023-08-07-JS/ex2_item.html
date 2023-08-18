@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.container{
+            border: 1px solid red;
+            display: flex;
+            width: 600px;
+            flex-wrap: nowrap;
+
+        }
+        div.item{
+            background-color: aquamarine;
+            width: 600px;
+            /* 부모의 nowrap 설정으로 300px 으로 
+            설정되었던 것이 200px로 변경된 모습이다.*/
+            
+        }
+        div.item.flex1{
+            background-color: green;
+            /* flex-grow: 1; */ /* width:300px이 없어야 함.*/
+            flex-shrink: 1; /* 
+            부모의 너비가 600에서 500으로 재설정 한 후
+            width:300px이 있는 상태에서
+                공간이 부족할 때 줄일수 있는 비율
+            남은 공간을 1:2:3의 비율로 자리잡는다.*/
+        }
+        div.item.flex2{
+            background-color: blueviolet;
+            /* flex-grow: 1; */
+            flex-shrink: 1;
+        }
+        div.item.flex3{
+            background-color: orange;
+            /* flex-grow: 1; */
+            flex-shrink: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="item flex1">항목1</div>
+        <div class="item flex2">항목2</div>
+        <div class="item flex3">항목3</div>
+    </div>    
+</body>
+</html>

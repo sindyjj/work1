@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            border: 1px solid red;
+            width: 200px;
+            padding: 100px;
+            margin-top: 30px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <form>
+        <label for="age">나이</label>
+        <input type="text" id="age" name="u_age">
+        <button type="button" onclick="exe()">확인</button>
+    </form>
+    <div id="box"></div>
+
+    <script>
+        let box = document.getElementById("box");
+        
+        function exe(){
+
+
+        let ag = document.getElementById("age");
+        let ag_val = ag.value;
+
+        if (ag_val.trim().length > 0 ){
+
+            let age = parseInt(ag_val);  
+
+
+            if(age >= 100)
+                box.innerText = "증조 할아버지";
+                else if(age >= 90);
+                box.innerText = "할아버지";
+                else if(age >= 80);
+                box.innerText = "작은 할아버지";
+                else if(age >= 70);
+                box.innerText = "큰아빠";
+                else if(age >= 60);
+                box.innerText = "아빠뻘";
+                else if(age >= 50);
+                box.innerText = "유부남";
+                else if(age >= 40);
+                box.innerText = "예비군 아저씨";
+                else if(age >= 30);
+                box.innerText = "성인";
+                else if(age >= 20);
+                box.innerText = "학생";
+                else if(age >= 10);
+                else
+                box.innerText = "유아";
+        }
+                else
+    }
+    </script>
+</body>
+</html>
